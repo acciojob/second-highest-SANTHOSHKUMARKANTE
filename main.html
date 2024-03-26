@@ -14,20 +14,20 @@
 			// int count = 0;
 			int max = -Infinity;
 			int secondHighest = -Infinity;
-			// for (let index = 0; index < len; index++) {
-			// 	if (arr[0]==arr[i]) {
-			// 		count++;
-			// 	}
-			// }
-			// if(len<=1 || count==len){
-			// 	return "-Infinity";
-			// }
+			for (let index = 0; index < len; index++) {
+				if (arr[0]==arr[i]) {
+					count++;
+				}
+			}
+			if(len<=1 || count==len){
+				return "-Infinity";
+			}
 			for (let index = 0; index < len; index++) {
 				if (arr[index]>max) {
 					secondHighest = max;
 					max = arr[index];
 				}
-				else if (arr[index] > secondHighest || arr[index] != max) {
+				else if (arr[index] > secondHighest && arr[index] != max) {
 					secondHighest = arr[index];
 				}
 			}
