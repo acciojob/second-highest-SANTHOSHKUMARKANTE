@@ -11,7 +11,7 @@
         function secondHighest(arr) {
 	//Write your code here
 	let len = arr.length;
-	let count = 0;
+	// let count = 0;
 	let max = -Infinity;
 	let secondHighest = -Infinity;
 	// for (let index = 0; index < len; index++) {
@@ -24,10 +24,10 @@
 	// }
 	for (let index = 0; index < len; index++) {
 		if (arr[index]>max) {
-			// secondHighest = max;
+			secondHighest = max;
 			max = arr[index];
 		}
-		if (arr[index] > secondHighest && arr[index] < max) {
+		else if (arr[index] > secondHighest && arr[index] < max) {
 			secondHighest = arr[index];
 		}
 	}
