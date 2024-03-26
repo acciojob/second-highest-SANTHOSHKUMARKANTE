@@ -1,55 +1,40 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Highest Element</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+<body>
+    <script>
+        function secondHighest(arr) {
+            let len = arr.length;
+            let max = -Infinity;
+            let secondHighest = -Infinity;
 
-<body>	
-	<script>
-		function secondHighest(arr) {
-	//Write your code here
-	let len = arr.length;
-	let count = 0;
-	let max = -Infinity;
-	let secondHighest = -Infinity;
-	for (let index = 0; index < len; index++) {
-		if (arr[0] === arr[index]) {
-			count++;
-		}
-	}
-	if(len < 2  ||  count === len){
-		return -Infinity;
-	}
-	for (let index = 0; index < len; index++) {
-		if (arr[index]>max) {
-			secondHighest = max;
-			max = arr[index];
-		}
-		else if (arr[index] > secondHighest && arr[index] != max) {
-			secondHighest = arr[index];
-		}
-	}
-	return secondHighest;
-	
-	
-}
+            for (let index = 0; index < len; index++) {
+                if (arr[index] > max) {
+                    secondHighest = max;
+                    max = arr[index];
+                } else if (arr[index] > secondHighest && arr[index] != max) {
+                    secondHighest = arr[index];
+                }
+            }
+            return secondHighest === -Infinity ? -Infinity : secondHighest;
+        }
 
-		function Main() {
-			var n = prompt("Enter the number of elements");
-			var arr = [];
-			for (var i = 0; i < n; i++) {
-				arr[i] = prompt("Enter element " + (i+1));
-			}
-			alert(secondHighest(arr));
-		}
-		Main();
-	</script>
+        function Main() {
+            let n = parseInt(prompt("Enter the number of elements"));
+            let arr = [];
+            for (let i = 0; i < n; i++) {
+                arr.push(parseInt(prompt("Enter element " + (i+1))));
+            }
+            alert(secondHighest(arr));
+        }
+        Main();
+    </script>
 
-    <script type="text/javascript" src="./script.js">
-</script>
-
+    <script type="text/javascript" src="./script.js"></script>
 </body>
-
 </html>
