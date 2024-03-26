@@ -1,53 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Second Highest Element</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
     <script>
-        function secondHighest(arr) {
-	//Write your code here
-	let len = arr.length;
-	// let count = 0;
-	let max = -Infinity;
-	let secondHighest = -Infinity;
-	// for (let index = 0; index < len; index++) {
-	// 	if (arr[0] === arr[index]) {
-	// 		count++;
-	// 	}
-	// }
-	// if(len < 2  ||  count === len){
-	// 	return -Infinity;
-	// }
-	for (let index = 0; index < len; index++) {
-		if (arr[index]>max) {
-			secondHighest = max;
-			max = arr[index];
+      // function secondHighest(arr) {
+      //   //Write your code here
+      //   if (arr.length == 0 || arr.length == 1) {
+      //     return "-Infinity";
+      //   } else {
+      //     arr.sort((a, b) => a - b);
+      //     let flag = true;
+      //     for (let i = 0; i < arr.length - 1; i++) {
+      //       if (arr[i] != arr[i + 1]) {
+      //         flag = false;
+      //       }
+      //     }
+      //     if (flag) {
+      //       return "-Infinity";
+      //     } else {
+      //       return arr[arr.length - 2];
+      //     }
+      //   }
+      // }
+      function secondHighest(arr) {
+			let first = -Infinity, second = -Infinity;
+			for (let i = 0; i < arr.length; i++) {
+				if (arr[i] > first) {
+				second = first;
+				first = arr[i];
+				} else if (arr[i] > second && arr[i] < first) {
+				second = arr[i];
+				}
+			}
+			return second;
 		}
-		else if (arr[index] > secondHighest && arr[index] < max) {
-			secondHighest = arr[index];
-		}
-	}
-	return secondHighest;
-	
-	
-}
 
-
-        function Main() {
-            let n = parseInt(prompt("Enter the number of elements"));
-            let arr = [];
-            for (let i = 0; i < n; i++) {
-                arr.push(parseInt(prompt("Enter element " + (i+1))));
-            }
-            alert(secondHighest(arr));
+      function Main() {
+        var n = prompt("Enter the number of elements");
+        var arr = [];
+        for (var i = 0; i < n; i++) {
+          arr[i] = prompt("Enter element " + (i + 1));
         }
-        Main();
+        alert(secondHighest(arr));
+      }
+      Main();
     </script>
 
     <script type="text/javascript" src="./script.js"></script>
-</body>
+  </body>
 </html>
