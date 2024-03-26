@@ -15,11 +15,11 @@
 			int max = -Infinity;
 			int secondHighest = -Infinity;
 			for (let index = 0; index < len; index++) {
-				if (arr[0]==arr[index]) {
+				if (arr[0] === arr[index]) {
 					count++;
 				}
 			}
-			if(len<=1 || count==len){
+			if(len < 2  ||  count === len){
 				return "-Infinity";
 			}
 			for (let index = 0; index < len; index++) {
