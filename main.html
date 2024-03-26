@@ -9,20 +9,34 @@
 <body>
     <script>
         function secondHighest(arr) {
-            let len = arr.length;
-            let max = -Infinity;
-            let secondHighest = -Infinity;
-
-            for (let index = 0; index < len; index++) {
-                if (arr[index] > max) {
-                    secondHighest = max;
-                    max = arr[index];
-                } else if (arr[index] > secondHighest && arr[index] != max) {
-                    secondHighest = arr[index];
-                }
-            }
-            return secondHighest === -Infinity ? -Infinity : secondHighest;
-        }
+	//Write your code here
+	let len = arr.length;
+	let count = 0;
+	let max = -Infinity;
+	let secondHighest = -Infinity;
+	// for (let index = 0; index < len; index++) {
+	// 	if (arr[0] === arr[index]) {
+	// 		count++;
+	// 	}
+	// }
+	// if(len < 2  ||  count === len){
+	// 	return -Infinity;
+	// }
+	for (let index = 0; index < len; index++) {
+		if (arr[index]>max) {
+			// secondHighest = max;
+			max = arr[index];
+		}
+		if (arr[index] > secondHighest && arr[index] < max) {
+			secondHighest = arr[index];
+		}
+	}
+	return secondHighest;
+	
+	
+}
+let res = secondHighest([4,2,5,7,2,9]) ;
+console.log();
 
         function Main() {
             let n = parseInt(prompt("Enter the number of elements"));
